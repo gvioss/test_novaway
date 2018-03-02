@@ -48,7 +48,7 @@ class BookController extends Controller
             $this->getDoctrine()->getManager()->persist($book);
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('notice', 'New product successfully created.');
+            $this->addFlash('notice', 'Le libre a bien été ajouté.');
 
             return $this->redirectToRoute('add_book');
         }
@@ -58,13 +58,67 @@ class BookController extends Controller
         ]);
     }
 
-    public function editAction()
+    /**
+     * @Route("/edit/{id}", name="edit_book")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function editAction(Request $request, $id)
+    {
+        $book = $this->getDoctrine()
+            ->getRepository('AppBundle:Book')
+            ->find($id);
+
+        if (empty($book)) {
+            $this->addFlash('error', 'Livre introuvable.');
+            return $this->redirectToRoute('list_book');
+        }
+
+        $form = $this->createForm(BookType::class, $book);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($book);
+            $em->flush();
+
+            $this->addFlash('notice', 'Le livre a été mise à jour.');
+
+            return $this->redirectToRoute('list_book');
+        }
+
+        return $this->render('book/edit.html.twig', array(
+            'form' => $form->createView(),
+            'book' => $book
+        ));
+    }
+
+    public function deleteAction(Request $request)
     {
 
     }
 
-    public function deleteAction()
+    /**
+     * @Route("/detail/{id}", name="detail_book")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function detailAction($id)
     {
+        $book = $this->getDoctrine()
+            ->getRepository('AppBundle:Book')
+            ->find($id);
 
+        if (empty($book)) {
+            $this->addFlash('error', 'Livre introuvable.');
+
+            return $this->redirectToRoute('list_book');
+        }
+
+        return $this->render('book/detail.html.twig', array(
+            'book' => $book
+        ));
     }
 }

@@ -131,23 +131,7 @@ class Book
     public function setPageNumber($page_number)
     {
         $this->page_number = $page_number;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPageNumer()
-    {
-        return $this->page_numer;
-    }
-
-    /**
-     * @param mixed $page_numer
-     */
-    public function setPageNumer($page_numer)
-    {
-        $this->page_numer = $page_numer;
-    }
+    }   
 
     /**
      * @return mixed

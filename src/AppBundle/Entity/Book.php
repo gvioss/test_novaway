@@ -56,4 +56,133 @@ class Book
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     private $Author;
+
+
+    /**
+     * @return mixed
+     */
+    public function getIsnb()
+    {
+        return $this->isnb;
+    }
+
+    /**
+     * @param mixed $isnb
+     */
+    public function setIsnb($isnb)
+    {
+        $this->isnb = $isnb;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReleaseDate()
+    {
+        return $this->release_date;
+    }
+
+    /**
+     * @param mixed $release_date
+     */
+    public function setReleaseDate($release_date)
+    {
+        $this->release_date = $release_date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPageNumber()
+    {
+        return $this->page_number;
+    }
+
+    /**
+     * @param mixed $page_number
+     */
+    public function setPageNumber($page_number)
+    {
+        $this->page_number = $page_number;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPageNumer()
+    {
+        return $this->page_numer;
+    }
+
+    /**
+     * @param mixed $page_numer
+     */
+    public function setPageNumer($page_numer)
+    {
+        $this->page_numer = $page_numer;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResume()
+    {
+        return $this->resume;
+    }
+
+    /**
+     * @param mixed $resume
+     */
+    public function setResume($resume)
+    {
+        $this->resume = $resume;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthor()
+    {
+        return $this->Author;
+    }
+
+    /**
+     * @param mixed $Author
+     */
+    public function setAuthor($Author)
+    {
+        $this->Author = $Author;
+    }
 }

@@ -66,4 +66,132 @@ class Film
      * )
      */
     private $Actors;
+
+    /**
+     * @return mixed
+     */
+    public function getIsan()
+    {
+        return $this->isan;
+    }
+
+    /**
+     * @param mixed $isan
+     */
+    public function setIsan($isan)
+    {
+        $this->isan = $isan;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReleaseDate()
+    {
+        return $this->release_date;
+    }
+
+    /**
+     * @param mixed $release_date
+     */
+    public function setReleaseDate($release_date)
+    {
+        $this->release_date = $release_date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param mixed $duration
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResume()
+    {
+        return $this->resume;
+    }
+
+    /**
+     * @param mixed $resume
+     */
+    public function setResume($resume)
+    {
+        $this->resume = $resume;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDirector()
+    {
+        return $this->Director;
+    }
+
+    /**
+     * @param mixed $Director
+     */
+    public function setDirector($Director)
+    {
+        $this->Director = $Director;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormats()
+    {
+        return $this->Formats;
+    }
+
+    /**
+     * @param mixed $Formats
+     */
+    public function setFormats($Formats)
+    {
+        $this->Formats = $Formats;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActors()
+    {
+        return $this->Actors;
+    }
+
+    /**
+     * @param mixed $Actors
+     */
+    public function setActors($Actors)
+    {
+        $this->Actors = $Actors;
+    }
 }

@@ -8,10 +8,32 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+/**
+ * Class BookController
+ * @package AppBundle\Controller
+ * @Route("/book")
+ */
 class BookController extends Controller
 {
     /**
-     * @Route("/book/add", name="add_book")
+     * @Route("/list", name="list_book")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function listAction(Request $request)
+    {
+        $books = $this->getDoctrine()
+            ->getRepository('AppBundle:Book')
+            ->findAll();
+
+        return $this->render('book/list.html.twig', array(
+            'books' => $books
+        ));
+    }
+
+
+    /**
+     * @Route("/add", name="add_book")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */

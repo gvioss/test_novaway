@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+        <h2>Book: List</h2>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ISNB</th>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Date de parution</th>
+                <th>Nombre de page</th>
+                <th>Prix</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for book in books %}
+                <tr>
+                    <th>{{ book.isnb }}</th>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author.name }}</td>
+                    <td>{{ book.releasedate|date('F j, Y, g:i a') }}</td>
+                    <td>{{ book.pagenumber }}</td>
+                    <td>{{ book.price }}</td>
+                    <td>
+                        <a href="/book/detail/{{ book.id }}" class="btn btn-success">Détail</a>
+                        <a href="/book/edit/{{ book.id }}" class="btn btn-default">Modifier</a>
+                        <a href="/book/delete/{{ book.id }}" class="btn btn-danger">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+{% endblock %}
+

@@ -50,7 +50,7 @@ class BookController extends Controller
 
             $this->addFlash('notice', 'Le libre a bien été ajouté.');
 
-            return $this->redirectToRoute('add_book');
+            return $this->redirectToRoute('list_book');
         }
 
         return $this->render('book/add.html.twig', [
@@ -95,9 +95,30 @@ class BookController extends Controller
         ));
     }
 
-    public function deleteAction(Request $request)
+    /**
+     * @Route("/delete/{id}", name="delete_book")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteAction($id)
     {
+        $book = $this->getDoctrine()
+            ->getRepository('AppBundle:Book')
+            ->find($id);
 
+        if (empty($book)) {
+            $this->addFlash('error', 'Livre introuvable.');
+
+            return $this->redirectToRoute('list_book');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($book);
+        $em->flush();
+
+        $this->addFlash('notice', 'Livre supprimé.');
+
+        return $this->redirectToRoute('list_book');
     }
 
     /**

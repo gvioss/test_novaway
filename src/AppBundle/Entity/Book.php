@@ -37,11 +37,6 @@ class Book
     private $page_number;
 
     /**
-     * 
-     */
-    private $page_numer;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $resume;
@@ -56,6 +51,22 @@ class Book
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     private $Author;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
 
     /**

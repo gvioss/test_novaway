@@ -4,6 +4,8 @@
 
         <h2>Book: List</h2>
 
+        <a href="/book/add">Ajouter un livre</a>
+
         <table class="table">
             <thead>
             <tr>
@@ -26,9 +28,9 @@
                     <td>{{ book.pagenumber }}</td>
                     <td>{{ book.price }}</td>
                     <td>
-                        <a href="/book/detail/{{ book.id }}" class="btn btn-success">Détail</a>
-                        <a href="/book/edit/{{ book.id }}" class="btn btn-default">Modifier</a>
-                        <a href="/book/delete/{{ book.id }}" class="btn btn-danger">Supprimer</a>
+                        <a href="/book/detail/{{ book.id }}">Détail</a>
+                        <a href="/book/edit/{{ book.id }}">Modifier</a>
+                        <a href="/book/delete/{{ book.id }}">Supprimer</a>
                     </td>
                 </tr>
             {% endfor %}

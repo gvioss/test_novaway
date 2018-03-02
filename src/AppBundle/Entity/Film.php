@@ -17,7 +17,7 @@ class Film
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true, nullable=false)
+     * @ORM\Column(type="string", unique=true, length=24, nullable=false)
      */
     private $isan;
 

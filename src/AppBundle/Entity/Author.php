@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="author")
+ * 
  */
 class Author
 {
@@ -18,12 +18,17 @@ class Author
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\OneToMany(targetEntity="Book", mappedBy="Author")
+     */
+    private $Books;
+
+    /**
+     * 
      */
     private $age;
 

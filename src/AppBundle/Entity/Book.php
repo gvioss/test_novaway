@@ -17,7 +17,7 @@ class Book
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true, nullable=false)
+     * @ORM\Column(type="string", unique=true, length=13, nullable=false)
      */
     private $isnb;
 
@@ -27,7 +27,7 @@ class Book
     private $title;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $release_date;
 

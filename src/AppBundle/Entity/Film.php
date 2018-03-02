@@ -27,7 +27,7 @@ class Film
     private $title;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $release_date;
 

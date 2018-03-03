@@ -15,3 +15,5 @@ Fin session 2 - 02/03/18 - 23h35
 ### Session 3
 
 Début session 3 - 03/03/18 - 14h00
+
+Fin dession 3 - 03/03/18 - 16h00

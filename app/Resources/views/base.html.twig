@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title 'Mon catalogue' %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<div id="header">
+    {{ include('menu.html.twig') }}
+</div>
+<div id="wrapper">
+    <div id="page" class="container-fluid">
+        <div id="content">
+            <div class="row">
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="alert alert-success col-sm" role="alert">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div clas="row">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+{% block javascripts %}{% endblock %}
+</body>
 </html>
+

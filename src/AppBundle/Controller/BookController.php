@@ -17,10 +17,9 @@ class BookController extends Controller
 {
     /**
      * @Route("/list", name="list_book")
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function listAction(Request $request)
+    public function listAction()
     {
         $books = $this->getDoctrine()
             ->getRepository('AppBundle:Book')

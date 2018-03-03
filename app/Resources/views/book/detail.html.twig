@@ -1,18 +1,22 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-    <a href="{{ path('list_book') }}">Retour à la liste</a>
-    <hr>
-    <h2>{{ book.title }}</h2>
+    <div class="row justify-content-md-center">
+        <div class="col col-sm-6">
+            <a href="{{ path('list_book') }}" class="btn btn-primary">Retour à la liste</a>
+            <hr>
+            <h2>{{ book.title }}</h2>
 
-    <ul>
-        <li>Auteur: {{ book.author.name }}</li>
-        <li>Date de parution: {{ book.releaseDate | date('j F Y') }}</li>
-        <li>Nombre de page: {{ book.pageNumber }}</li>
-        <li>Prix: {{ book.price }}</li>
-    </ul>
-    <p>
-        {{ book.resume }}
-    </p>
+            <ul>
+                <li>Auteur: {{ book.author.name }}</li>
+                <li>Date de parution: {{ book.releaseDate | date('j F Y') }}</li>
+                <li>Nombre de page: {{ book.pageNumber }}</li>
+                <li>Prix: {{ book.price }}</li>
+            </ul>
+            <p>
+                {{ book.resume }}
+            </p>
+        </div>
+    </div>
 {% endblock %}
 

@@ -19,29 +19,36 @@ class BookType extends AbstractType
         $builder
             ->add('isnb', TextType::class, [
                 'label' => 'Numéro ISNB',
-                'required' => true
+                'required' => true,
+                'attr' => ['class' => 'form-control']
             ])
             ->add('title', TextType::class, [
-                'label' => 'Titre'
+                'label' => 'Titre',
+                'attr' => ['class' => 'form-control']
             ])
             ->add('author', EntityType::class, [
                 'class' => 'AppBundle\Entity\Author',
                 'choice_label' => 'name',
                 'choice_value' => 'id',
-                'label' => 'Auteur'
+                'label' => 'Auteur',
+                'attr' => ['class' => 'form-control']
             ])
             ->add('release_date', DateType::class, [
                 'label' => 'Date de parution',
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'attr' => ['class' => 'form-control']
             ])
             ->add('page_number', IntegerType::class, [
-                'label' => 'Nombre de page'
+                'label' => 'Nombre de page',
+                'attr' => ['class' => 'form-control']
             ])
             ->add('resume', TextareaType::class, [
-                'label' => 'Résumé'
+                'label' => 'Résumé',
+                'attr' => ['class' => 'form-control']
             ])
             ->add('price', MoneyType::class, [
-                'label' => 'Prix'
+                'label' => 'Prix',
+                'attr' => ['class' => 'form-control']
             ])
         ;
     }
